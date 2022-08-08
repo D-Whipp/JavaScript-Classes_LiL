@@ -7,10 +7,21 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>JavaScript Classes: Sandbox</title>
+    <title>Knights Radiant</title>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>JavaScript Sandbox</h1>
+    <h1>Knights Radiant</h1>
+
+    <input
+      type="text"
+      id="radiantInput"
+      placeholder="Enter Radiant name: "
+    />
+
+    <button onclick="addRadiant()">Add Radiant</button>
+    <button onclick="removeRadiant()">Remove Radiant</button>
+
+    <ul id="knights-radiant-list"></ul>
   </body>
 </html>
