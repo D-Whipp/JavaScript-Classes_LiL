@@ -13,14 +13,58 @@
   <body>
     <h1>Knights Radiant</h1>
 
-    <input
-      type="text"
-      id="radiantInput"
-      placeholder="Enter Radiant name: "
-    />
+    <form>
+      <label for="name">Radiant Name: </label>
+      <input
+        type="text"
+        name="name"
+        id="radiant-name-input"
+        placeholder="Enter Radiant name here"
+      />
+      <br />
 
-    <button onclick="addRadiant()">Add Radiant</button>
-    <button onclick="removeRadiant()">Remove Radiant</button>
+      <label for="height-feet">Radiant Height in Feet: </label>
+      <input
+        type="text"
+        name="height-feet"
+        id="radiant-height-feet-input"
+        placeholder="Enter Radiant height in feet"
+      />
+      <br />
+
+      <label for="height-inches">Radiant Height in Inches: </label>
+      <input
+        type="text"
+        name="height-inches"
+        id="radiant-height-inches-input"
+        placeholder="Enter Radiant height in feet"
+      />
+      <br />
+
+      <label for="weight">Radiant Weight: </label>
+      <input
+        type="text"
+        name="weight"
+        id="radiant-weight-input"
+        placeholder="Enter Radiant weight here"
+      />
+      <br />
+
+      <label for="age">Radiant Age: </label>
+      <input
+        type="text"
+        name="age"
+        id="radiant-age-input"
+        placeholder="Enter Radiant age here"
+      />
+
+      <br />
+      <button onclick="createRadiant()">Create Radiant</button>
+      <button id="add-radiant-button" onclick="addRadiant()">
+        Add Radiant
+      </button>
+      <button onclick="removeRadiant()">Remove Radiant</button>
+    </form>
 
     <ul id="knights-radiant-list"></ul>
   </body>

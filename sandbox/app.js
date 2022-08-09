@@ -1,7 +1,6 @@
 // const Jasnah = new Person('Jasnah', 6, 156, 34);
 // console.log(Jasnah.personStats());
 // hoistableFunction();
-const radiantList = document.getElementById('knights-radiant-list');
 // mixin's are fround upon
 let mixin = {
   madeIn() {
@@ -60,66 +59,65 @@ class Windrunners extends Radiant {
   }
 
   myName() {
-    return console.log(`This Knights Radiant's name is ${this.name}`);
+    return console.log(
+      `Knights Radiant ${this.name}, a member of Windrunners`
+    );
   }
 }
 
-const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
-const Teft = new Windrunners(
-  'Teft',
-  6,
-  7,
-  225,
-  53,
-  'Flight',
-  'Phendorana'
-);
-
-// radiantList.push(Kal);
-// radiantList.push(Teft);
-// console.log(radiantList);
-
-// const Navani = new Radiant('Navani', 6, 155, 44);
-// console.log(Teft);
-// console.log(Teft.myName());
-// console.log(Teft.madeIn());
-// console.log(Kal);
-// console.log(Kal.radiantStats());
-// console.log(Radiant.totalPowerLevel(Kal, Navani));
-
-// function hoistableFunction() {
-//   return console.log('I can be called from anywhere!');
-// }
+// const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
+// const Teft = new Windrunners(
+//   'Teft',
+//   6,
+//   7,
+//   225,
+//   53,
+//   'Flight',
+//   'Phendorana'
+// );
 
 // DOM manipulation
+const formNode = document.querySelector('form');
+const radiantListNode = document.getElementById(
+  'knights-radiant-list'
+);
+
+formNode.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
+
+function createRadiant() {
+  const radiantNameNode = document.getElementById(
+    'radiant-name-input'
+  ).value;
+  const radiantHeightNode = document.getElementById(
+    'radiant-height-feet-input'
+  ).value;
+  const radiantInchesNode = document.getElementById(
+    'radiant-height-inches-input'
+  ).value;
+  const radiantWeightNode = document.getElementById(
+    'radiant-weight-input'
+  ).value;
+  const radiantAgeNode = document.getElementById(
+    'radiant-age-input'
+  ).value;
+
+  // let radiantSpecs = `${radiantNameNode}`;
+  console.log(radiantNameNode);
+}
+
 function addRadiant() {
   let ul = document.getElementById('knights-radiant-list');
-
-  let radiant = document.getElementById('radiantInput');
+  let radiant = document.getElementById('radiant-name-input');
   let li = document.createElement('li');
-  li.setAttribute('id', 'radiant');
   li.appendChild(document.createTextNode(radiant.value));
   ul.appendChild(li);
+
+  radiant.value = null;
 }
 
 function removeRadiant() {
   let ul = document.getElementById('knights-radiant-list');
   ul.removeChild(ul.firstElementChild);
-  // let radiant = document.getElementById('radiantInput');
-  // let item = document.getElementById(radiant.value);
-  // ul.removeChild(item);
 }
-
-// const bodyNode = document.querySelector('body');
-// const ulNode = document.createElement('ul');
-// const liNode = document.createElement('li');
-// const liNodeTwo = document.createElement('li');
-// liNode.innerHTML = "I'm listening...";
-// liNode.innerHTML = Kal.radiantStats();
-// liNodeTwo.innerHTML = Teft.radiantStats();
-// radiantList.appendChild(liNode);
-// console.log(radiantList);
-// radiantList.appendChild(liNodeTwo);
-// const liUlNode = ulNode.appendChild(liNode);
-// const liUlNode = ulNode.appendChild(liNodeTwo);
-// bodyNode.appendChild(liUlNode);
