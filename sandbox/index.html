@@ -8,7 +8,8 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Knights Radiant</title>
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/app.js" defer></script>
   </head>
   <body>
     <h1>Knights Radiant</h1>
@@ -60,10 +61,8 @@
 
       <br />
       <button onclick="createRadiant()">Create Radiant</button>
-      <button id="add-radiant-button" onclick="addRadiant()">
-        Add Radiant
-      </button>
       <button onclick="removeRadiant()">Remove Radiant</button>
+      <button onclick="saveRadiants()">Save</button>
     </form>
 
     <ul id="knights-radiant-list"></ul>
