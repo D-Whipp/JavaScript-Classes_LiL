@@ -103,8 +103,31 @@ function createRadiant() {
     'radiant-age-input'
   ).value;
 
-  // let radiantSpecs = `${radiantNameNode}`;
-  console.log(radiantNameNode);
+  const liNode = document.createElement('li');
+
+  // storing in template string literal
+  // need to convert to an object instead
+  // let radiantInformation = `
+  // Name: ${radiantNameNode},
+  // Age: ${radiantAgeNode},
+  // Height: ${radiantHeightNode} feet, ${radiantInchesNode} inches,
+  // Weight: ${radiantWeightNode} pounds
+  // `;
+  // end template string literal
+  // const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
+  let newRadiant = new Radiant(
+    radiantNameNode,
+    radiantHeightNode,
+    radiantInchesNode,
+    radiantWeightNode,
+    radiantAgeNode
+  );
+  // console.log(newRadiant);
+  // console.log(radiantInformation);
+  liNode.innerText = newRadiant;
+  radiantListNode.appendChild(liNode);
+  // console.log(radiantListNode);
+  // console.log(radiantNameNode);
 }
 
 function addRadiant() {
