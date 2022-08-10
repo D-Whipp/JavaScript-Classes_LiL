@@ -78,9 +78,6 @@ const radiantArray = [];
 // setting up localstorage
 // To STORE the array, do what you're doing:
 // localStorage.setItem("users", JSON.stringify(users));
-// To GET the array:
-// users = JSON.parse(localStorage.getItem("users") || "[]");
-
 function createRadiant() {
   const radiantNameNode = document.getElementById(
     'radiant-name-input'
@@ -98,50 +95,33 @@ function createRadiant() {
     'radiant-age-input'
   ).value;
 
-<<<<<<< HEAD:sandbox/app.js
-  const liNode = document.createElement('li');
-
-  // storing in template string literal
-  // need to convert to an object instead
-  // let radiantInformation = `
-  // Name: ${radiantNameNode},
-  // Age: ${radiantAgeNode},
-  // Height: ${radiantHeightNode} feet, ${radiantInchesNode} inches,
-  // Weight: ${radiantWeightNode} pounds
-  // `;
-  // end template string literal
-  // const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
-  let newRadiant = new Radiant(
-=======
   // const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
   const newRadiant = new Radiant(
->>>>>>> 99c2d5c5409d261f6800a151aac68501ad8ff9a4:sandbox/assets/js/app.js
     radiantNameNode,
     radiantHeightNode,
     radiantInchesNode,
     radiantWeightNode,
     radiantAgeNode
   );
-<<<<<<< HEAD:sandbox/app.js
-  // console.log(newRadiant);
-  // console.log(radiantInformation);
-  liNode.innerText = newRadiant;
-  radiantListNode.appendChild(liNode);
-  // console.log(radiantListNode);
-  // console.log(radiantNameNode);
-=======
-// you need to add a filled array to the outside scope to saveRadiants()
+  // you need to add a filled array to the outside scope to saveRadiants()
+  JSON.stringify(newRadiant);
   radiantArray.push(newRadiant);
   displayRadiantArray(radiantArray);
   return radiantArray;
->>>>>>> 99c2d5c5409d261f6800a151aac68501ad8ff9a4:sandbox/assets/js/app.js
+  // return newRadiant;
 }
 
 function saveRadiants() {
-  sessionStorage.setItem(
-    'radiantList',
-    JSON.stringify(radiantListNode)
+  sessionStorage.setItem('radiantList', radiantArray);
+}
+
+// To GET the array:
+// users = JSON.parse(localStorage.getItem("users") || "[]");
+function getRadiants() {
+  let radiants = JSON.parse(
+    localStorage.getItem('radiantList') || '[]'
   );
+  console.log(radiants);
 }
 
 function displayRadiantArray(radiantArrayInput) {
