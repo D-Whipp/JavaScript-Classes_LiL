@@ -1,6 +1,9 @@
-// const Jasnah = new Person('Jasnah', 6, 156, 34);
-// console.log(Jasnah.personStats());
-// hoistableFunction();
+// preventing form reset on submission
+const formNode = document.querySelector('form');
+formNode.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
+
 // mixin's are fround upon
 let mixin = {
   madeIn() {
@@ -65,26 +68,18 @@ class Windrunners extends Radiant {
   }
 }
 
-// const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
-// const Teft = new Windrunners(
-//   'Teft',
-//   6,
-//   7,
-//   225,
-//   53,
-//   'Flight',
-//   'Phendorana'
-// );
-
 // DOM manipulation
-const formNode = document.querySelector('form');
 const radiantListNode = document.getElementById(
   'knights-radiant-list'
 );
 
-formNode.addEventListener('submit', (event) => {
-  event.preventDefault();
-});
+const radiantArray = [];
+
+// setting up localstorage
+// To STORE the array, do what you're doing:
+// localStorage.setItem("users", JSON.stringify(users));
+// To GET the array:
+// users = JSON.parse(localStorage.getItem("users") || "[]");
 
 function createRadiant() {
   const radiantNameNode = document.getElementById(
@@ -103,18 +98,29 @@ function createRadiant() {
     'radiant-age-input'
   ).value;
 
-  // let radiantSpecs = `${radiantNameNode}`;
-  console.log(radiantNameNode);
+  // const Kal = new Radiant('Kaladin', 6, 11, 250, 23);
+  const newRadiant = new Radiant(
+    radiantNameNode,
+    radiantHeightNode,
+    radiantInchesNode,
+    radiantWeightNode,
+    radiantAgeNode
+  );
+// you need to add a filled array to the outside scope to saveRadiants()
+  radiantArray.push(newRadiant);
+  displayRadiantArray(radiantArray);
+  return radiantArray;
 }
 
-function addRadiant() {
-  let ul = document.getElementById('knights-radiant-list');
-  let radiant = document.getElementById('radiant-name-input');
-  let li = document.createElement('li');
-  li.appendChild(document.createTextNode(radiant.value));
-  ul.appendChild(li);
+function saveRadiants() {
+  sessionStorage.setItem(
+    'radiantList',
+    JSON.stringify(radiantListNode)
+  );
+}
 
-  radiant.value = null;
+function displayRadiantArray(radiantArrayInput) {
+  console.log("I'm listening...", radiantArrayInput);
 }
 
 function removeRadiant() {
